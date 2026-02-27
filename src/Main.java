@@ -95,7 +95,24 @@ public class Main {
                  default:
                      System.out.println("Opcion invalida");
 
+                 case 3:
+                     String Empresa1;
+                     System.out.println("INGRESE EL CODIGO DEL PRODUCTO BUSCAR");
+                     Empresa1 = sc.next();
 
+                     if (lst.isEmpty()){
+                         System.out.println("LA LISTA NO TIENE ELEMENTOS");
+                     }
+
+                     Empresa1 =null;
+
+
+                     for (Empresa E: lst){
+                         if (E.getNombre().equalsIgnoreCase(Empresa1)){
+                             E1 = E;
+                             System.out.println(E1.toString());
+                         }
+                     }
 
 
              }
