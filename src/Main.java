@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -5,8 +7,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        Empresa E1 = new Empresa();
+       Scanner sc = new Scanner(System.in);
+     /*   Empresa E1 = new Empresa();
         System.out.println("ingrese el nombre del personaje:");
        E1.setNombre(sc.next());
 
@@ -21,24 +23,42 @@ public class Main {
 
         System.out.println("ingrese si esta vivo:");
         E1.setVivo(sc.nextBoolean());
-
+*/
         //menu de opciones
-        int opcion;
-        {
-         System.out.println(" 1. Mostrar estado");
-         System.out.println(" 2. Ganar experiencia");
-         System.out.println(" 3. subir nivel");
-         System.out.println(" 4. aplicar daño");
-         System.out.println(" 5. curarse ");
-         System.out.println(" 5. Mostrar estado final ");
-         System.out.println(" 6. seleccione una opcion  ");
-         opcion = sc.nextInt();
+        List<Empresa> lst =new ArrayList<>();
+        int op;
 
-         switch (opcion ){
-             case 1:
-                 E1.mostrarEstado();
-                 break;
-             case 2:
+
+
+         do{
+             System.out.println(" 1. CREAR OBJETO");
+             System.out.println(" 2. MOSTRAR LISTA");
+             System.out.println(" 3. SALIR");
+             System.out.println(" 4. SELECCIONA UNA OPCION");
+             op = sc.nextInt();
+             switch (op ){
+                 case 1:
+                     System.out.println(" 1. CREAR OBJETO");
+                     System.out.println("INGRESE EL CODIGO DE LA PERSONA");
+                     String codigo = sc.next();
+                     System.out.println("INGRESE EL NIVEL DE LA PERSONA");
+                     int nivel = sc.nextInt();
+                     System.out.println("INGRESE LA EXPERIENCIA");
+                     int XP = sc.nextInt();
+                     System.out.println("INGRESE LA VIDA");
+                     int LIFE = sc.nextInt();
+                     System.out.println("INGRESE SI ESTA VIVO ");
+                     Boolean VIVO = sc.nextBoolean();
+                     Empresa E1 = new Empresa(codigo , nivel , XP, LIFE , VIVO );
+
+                     lst.add( E1);
+
+
+
+
+
+
+           /*  case 2:
                  int experiencia;
                  System.out.println("Cuanta experiencia desea");
                  experiencia = sc.nextInt();
@@ -65,14 +85,22 @@ public class Main {
                  System.out.println("Estado final");
                  E1.mostrarEstado();
                  break;
-             default:
-                 System.out.println("Opcion invalida");
-         }
+            */
+                 case 2:
+                     System.out.println("2.MOSTRAR LISTA");
+                     for (Empresa E2: lst){
+                         System.out.println(E2);
+                     }
+                     break;
+                 default:
+                     System.out.println("Opcion invalida");
 
 
 
-        }
 
+             }
+
+         }while (op !=3);
 
 
     }
